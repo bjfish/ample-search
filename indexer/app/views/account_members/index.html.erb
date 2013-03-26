@@ -1,0 +1,34 @@
+<h1>Team members</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+<% @account_members.each do |team_member| %>
+    <tr>
+      <td><%= team_member.email %></td>
+      <td>
+        <% if team_member.user.nil? %>
+        Invited
+        <% else %>
+        Confirmed
+        <% end %>
+      </td>
+      <td><%= link_to 'Remove',[ team_member.account, team_member], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 
+   </tr>
+<% end %>
+
+</table>
+<h3>Add Team Member</h3>
+<%= form_tag(account_account_members_path, :method => "post") do %>
+    <%= label_tag(:q, "Email:") %>
+    <%= text_field_tag(:email) %>
+    <%= submit_tag("Add Team Member") %>
+<% end %>
+<br />
+
+<br />
+

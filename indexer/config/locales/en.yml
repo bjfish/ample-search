@@ -1,0 +1,21 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  integration_feedback: "Request additional integrations using our feedback widget on the right side of this page!"
+  navigation:
+    team: "Team"
+    settings: "Settings"
+    integrations: "Integrations"
+    login: "Login"
+    logout: "Logout"
+    signup: "Sign Up"
+    account: "Account"
+  trialing:
+    trial_expired: "Your trial has expired"
+    upgrade_now: ". Upgrade now"
+    paid_account: " to a paid account."
+    trial_ends: "Your free trial ends in "
+  signup:
+    agree_html: I agree to AmpleSearch <a href="%{path}" target="_blank">Terms of Use</a>

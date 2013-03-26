@@ -1,0 +1,30 @@
+<h2>Sign up</h2>
+<div id="stripe_error" class="alert alert-error" style="display:none" >
+</div>
+<%= simple_form_for(@account, :html => {:class => 'card_form form-vertical' }) do |f| %>
+    <%= f.error_notification %>
+        <div class="field">
+          <%= label_tag :card_number, "Credit Card Number" %>
+          <%= text_field_tag :card_number, nil, name: nil %>
+        </div>
+        <div class="field">
+          <%= label_tag :card_code, "Card Security Code (CVV)" %>
+          <%= text_field_tag :card_code, nil, name: nil %>
+        </div>
+        <div class="field">
+          <%= label_tag :card_month, "Card Expiration" %>
+          <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+        </div>
+    <%= f.input :user_count, :label => 'Number of users ($10 per user per month)' %>
+    <%= f.hidden_field :stripe_token %>
+    <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+<% end %>
+<% if flash[:account_canceled] %>
+<script type="text/javascript">
+    mixpanel.track("Account Cancelled")
+</script>
+<% end %>
+<script type="text/javascript">
+    mixpanel.track("New Account Page Viewed")
+</script>

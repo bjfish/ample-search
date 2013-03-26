@@ -1,0 +1,75 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.10'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'sqlite3'
+
+group :production do
+  gem 'mysql2'
+end
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+gem "ruby-trello", "~> 0.4.4"
+gem "tire", "~> 0.5.0"
+gem "resque", "~> 1.23.0"
+
+gem "bootstrap-sass", ">= 2.1.0.0"
+gem "devise", ">= 2.1.2", "< 2.2.0"
+gem "cancan", ">= 1.6.8"
+gem "rolify", ">= 3.2.0"
+gem "simple_form", ">= 2.0.3"
+gem "quiet_assets", ">= 1.0.1", :group => :development
+gem "uuidtools", "~> 2.1.3"
+#gem "bitbucket_api"
+gem 'omniauth'
+gem 'omniauth-github'
+gem "omniauth-bitbucket", "~> 0.0.1"
+gem "bitbucket_rest_api", "~> 0.1.1"
+#gem "bucketface", "~> 0.2.1"
+#gem "httparty", "~> 0.9.0"
+gem "rest-client", "~> 1.6.7"
+gem "github_api", "~> 0.8.1"
+gem "resque-status", "~> 0.4.0"
+gem "stripe"
+gem "stripe_event"
+gem 'newrelic_rpm'
+gem "resque-logger", "~> 0.1.0"
+gem 'activeadmin'
+gem 'font-awesome-sass-rails'
+gem 'http_accept_language'#
+gem 'indexer_jobs'#, :path => "vendor/gems/indexer_jobs-0.0.95"
+gem "liangzan_omniauth-trello", "~> 0.0.8.1"
+gem "memcache-client"
+gem 'sitemap_generator'

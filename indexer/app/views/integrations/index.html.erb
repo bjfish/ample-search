@@ -1,0 +1,84 @@
+<h3>Integrations</h3>
+
+
+<p>
+
+<% if flash[:integration_added]  %>
+<script type="text/javascript">
+    mixpanel.track("Integration Added");
+</script>
+<% end %>
+<% if flash[:new_user] %>
+<script type="text/javascript">
+    mixpanel.track("User Signed Up");
+    mixpanel.alias("<%= current_user.email %>");
+    mixpanel.people.set({
+'$email': '<%= current_user.email %>',
+'Account Status': 'Trialing',
+'$first_name': '<%= current_user.first_name %>',
+'$last_name': '<%= current_user.last_name %>',
+'$name': '<%= current_user.full_name %>',
+'$created': new Date(),
+});
+</script>
+<% end %>
+<% if user_signed_in? %>
+<% if current_user.integrations.size == 0 %>
+    Add your first integration below to get started
+<% else %>
+    Go to <%= link_to 'search page', '/' %> <i class="icon-hand-right"></i>
+<% end %>
+<% end %>
+</p>
+<table>
+  <tr>
+    <th></th>
+    <th/>
+    <th/>
+    <th/>
+  </tr>
+  <script src="https://api.trello.com/1/client.js?key=74c0ee95232def21d80dc898878d2382"></script>
+
+  <% @integrations.each do |integration| %>
+      <tr>
+        <td><h4><%= integration.name %></h4></td>
+        <td>
+          <% if user_signed_in? %>
+	          <% if current_user.integrations.include? integration %>
+	             <!-- <%= link_to "Edit", "", :class => "btn"%> -->
+	          <% else %>
+	            <%= link_to raw("<i class=\"icon-plus\"></i> Add"), user_omniauth_authorize_path(integration.name.downcase.to_sym), :class => "btn", :id => integration.name, 'data-id' => integration.id %>
+	          <% end %>
+          <% end %>
+          </td>
+          <td>
+          	 <% if user_signed_in? %>
+            <% if current_user.integrations.include? integration %>
+            <div class="retrieve btn" data-id="<%= integration.id %>">Index Now</div>
+            <% end %>
+            <% end %>
+          </td>
+          <td>
+          	<% if user_signed_in? %>
+            <% if current_user.integrations.include? integration %>
+            <div
+                <% if @statuses[integration.id] != '' && !@statuses[integration.id].include?('completed') %>
+                   class="indexing"
+                 <% end %>
+                 id="index-status-<%= integration.id %>" data-id="<%= integration.id %>">
+           <%= @statuses[integration.id] %>
+            </div>
+            <% end %>
+            <% end %>
+          </td>
+      </tr>
+  <% end %>
+</table>
+<br/>
+<div class="alert">
+  <%=t 'integration_feedback' %>
+</div>
+<br/>
+
+
+

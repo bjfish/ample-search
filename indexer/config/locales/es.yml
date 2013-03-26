@@ -1,0 +1,19 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  hello: "Hola mundo"
+  integration_feedback: "Solicitar integraciones adicionales utilizando nuestro widget de comentarios en la parte derecha de esta página!"
+  navigation:
+    team: "Equipo"
+    settings: "Configuración"
+    integrations: "Integraciones"
+    login: "Login"
+    logout: "Logout"
+    signup: "Sign Up"
+    account: "Cuenta"
+  trialing:
+    trial_expired: "Your trial has expired"
+    upgrade_now: ". Upgrade now"
+    paid_account: " to a paid account."
+    trial_ends: "Your free trial ends in "

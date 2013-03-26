@@ -1,0 +1,10 @@
+<% if user_signed_in? && current_user.is_trialing %>
+<div class="alert">
+  <% if current_user.is_trial_expired %>
+      <%=t 'trialing.trial_expired' %><strong>
+  <% else %>
+    <%=t 'trialing.trial_ends' %><%= distance_of_time_in_words(current_user.trial_expiry, Time.zone.now) %>
+  <% end %>
+  <strong><%= link_to(t('trialing.upgrade_now'), new_account_path) %></strong><%=t 'trialing.paid_account' %>
+</div>
+<% end %>

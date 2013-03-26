@@ -1,0 +1,27 @@
+
+ <p>
+<%= form_tag("/home/search", :method => "get", :class => "input-append") do %>
+    <%= text_field_tag :q, @query, :placeholder => 'Search' %>
+	 <button class="btn" type="button" onclick="submit();"><i class="icon-search"></i>Search</button>
+<% end %>
+	</p>
+
+<% if @results %>
+<small><%= @results.size %> results found. Searching <%= @count %> documents.</small><br/>
+    <br/>
+	<p>
+    
+
+    <% @results.each do |res| %>
+	    <p>
+        <%= link_to res[:name], res[:url], :target => "_blank", :style => "color: blue;"%><br/>
+		<small><span style="color: green;"><%= res[:appname] + " - " + res[:appdocname] %></span></small><br/>
+		<% if res.highlight %>
+		<small><%= res.highlight.name.join.html_safe %></small>
+		<% end %>
+		</p>
+    <% end %>
+<% end %>
+
+
+

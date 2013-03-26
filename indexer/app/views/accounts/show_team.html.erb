@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<h1>Team members</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Status</th>
+  </tr>
+<% @members.each do |team_member| %>
+    <tr>
+      <td><%= team_member.email %></td>
+      <td>
+        <% if team_member.user.nil? %>
+        Invited
+        <% else %>
+        Confirmed
+        <% end %>
+      </td>
+    </tr>
+<% end %>
+
+</table>
+
+
+<br />

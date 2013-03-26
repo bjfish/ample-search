@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @integration.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @integration.url %>
+</p>
+
+<p>
+  <b>Auth type:</b>
+  <%= @integration.auth_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_integration_path(@integration) %> |
+<%= link_to 'Back', integrations_path %>

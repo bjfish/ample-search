@@ -1,0 +1,32 @@
+<div class="jumbotron">
+        <h1>Search all of your applications in one place!</h1>
+        <p class="lead">AmpleSearch connects to your web applications to let you search across all of your data in one place</p>
+        <p>        <a class="btn btn-large btn-success" href="<%= new_user_registration_path %>">Start Your Free Trial</a>
+</p>
+</div>
+
+ <div class="row">
+        <div class="span6">
+          <h4>Search everything</h4>
+          <p>Find all data from all of your applications in one place</p>
+
+          <h4>Alerts - Coming Soon</h4>
+          <p>Save a search query which alerts you when documents are added that match the query</p>
+
+        </div>
+
+        <div class="span6">
+          <h4>News Feed - Coming Soon</h4>
+          <p>Shows you when items in any of your web applications have been updated</p>
+          
+        </div>
+</div>
+
+ <div class="row">
+        <div class="span12">
+           Check out our <%= link_to "current integrations", integrations_path %>
+        </div>
+</div>
+<script type="text/javascript">
+    mixpanel.track("Landing Page Loaded")
+</script>

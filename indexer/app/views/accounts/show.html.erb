@@ -1,0 +1,14 @@
+<h3>Card</h3>
+<% if flash[:new_account] %>
+<script type="text/javascript">
+    mixpanel.track("Account Purchased")
+</script>
+<% end %>
+<p>
+  Using card ending with <%= @account.last_4_digits %>
+</p>
+<p>
+  Number of users: <%= @account.user_count %>
+</p>
+
+<%= link_to 'Update Account', edit_account_path(@account) %>
