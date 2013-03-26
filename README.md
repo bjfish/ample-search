@@ -7,4 +7,4 @@ This sample contains three projects:
 * indexer-worker - a resque project which processes indexing jobs 
 * indexer_jobs - a library with jobs shared between indexer and indexer-worker projects
 
-An previous prototype screencast is included in this directory to demonstrate the basic application functionality.
+An previous prototype screencast is available [here](https://www.dropbox.com/s/jd5k7y0dm3xxjx2/prototype_index.avi) to demonstrate the basic application functionality.
